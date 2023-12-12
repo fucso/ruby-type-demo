@@ -1,0 +1,1 @@
+puts 'Hello ruby-type-demo!'

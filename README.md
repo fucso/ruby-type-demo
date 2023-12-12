@@ -1,4 +1,4 @@
-# 使用方法
+# Docker 使用方法
 1. プロジェクトのルートディレクトリで以下のコマンドを使用して Docker イメージをビルドします。
 
 ```
@@ -19,4 +19,25 @@ docker run -it --rm -v $(pwd):/usr/src/app ruby-type-demo
 
 ```
 docker run -it --rm ruby-type-demo ruby -e 'puts "Hello, world"'
+```
+
+# Sorbet
+1. init
+初期設定は tapioca 経由で行う。
+
+```
+bundle exec tapioca init
+```
+
+2. 型チェック
+
+```
+bundle exec srb tc
+```
+
+3. サードパーティー Gem の rbi ファイル生成
+Gem の rbi ファイルは tapioca によって生成する。
+
+```
+bundle exec tapioca gem
 ```

@@ -5,6 +5,11 @@ FROM ruby:3.1-slim
 # Set the working directory for any subsequent ADD, COPY, CMD, ENTRYPOINT, or RUN instructions.
 WORKDIR /usr/src/app
 
+# Installing the dependencies needed for native extensions
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends build-essential libpq-dev git \
+  && rm -rf /var/lib/apt/lists/*  # Cleanup to reduce image size
+
 # Optionally add a non-root user to run our app
 # RUN adduser --disabled-password --gecos '' myuser
 # USER myuser

@@ -10,7 +10,7 @@ docker build -t ruby-type-demo .
 2. Docker イメージのビルドが完了したら、次のコマンドを使用してコンテナを実行します。
 
 ```
-docker run -it --rm ruby-type-demo
+docker run -it --rm -v $(pwd):/usr/src/app ruby-type-demo
 ```
 
 このコマンドはターミナルでコンテナを起動し、対話モードで使用できるようにします。`--name` でコンテナに名前を付けることができます。

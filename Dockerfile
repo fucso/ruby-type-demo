@@ -17,9 +17,6 @@ COPY Gemfile Gemfile.lock ./
 # We use --system flag to ensure the binstubs are available in PATH.
 RUN gem install bundler && bundle install --system
 
-# Copy the rest of the application source code.
-COPY . .
-
 # Command to run when the container starts.
 # 'app/main.rb' should be the Ruby script that you want to run.
 CMD ["ruby", "app/main.rb"]

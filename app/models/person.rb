@@ -14,6 +14,9 @@ class Person
   sig { returns(T::Array[Address]) }
   attr_reader :address_history
 
+  sig { returns(T::Array[Vehicle]) }
+  attr_reader :vehicles
+
   sig { params(name: String, age: Integer, email: String, address: Address).void }
   def initialize(name, age, email, address)
     @name = name
@@ -21,12 +24,18 @@ class Person
     @email = email
     @address = address
     @address_history = [address]
+    @vehicles = []
   end
 
   sig { params(new_address: Address).void }
   def move_to(new_address)
     @address = new_address
     @address_history << new_address
+  end
+
+  sig { params(vehicle: Vehicle).void }
+  def buy_vehicle(vehicle)
+    @vehicles << vehicle
   end
 
   sig { returns(String) }
